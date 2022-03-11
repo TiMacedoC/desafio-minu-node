@@ -14,7 +14,7 @@ module.exports = (app) => {
     app.get('/clientes/:id', async (req, res) => {
         const { id } = req.params;
         const resposta = await Clientes.getById(id);
-        resposta ? res.json(resposta) : res.status(204).send()
+        resposta ? res.json(resposta) : res.json({ cliente: "Id não encontrado" })
     })
 
     app.patch('/clientes/:id', async (req, res) => {
