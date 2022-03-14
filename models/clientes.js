@@ -4,7 +4,6 @@ const cpfHandle = require('./cpfHandle')
 class Clientes {
 
     async post(cliente) {
-
         const { cpf, nome, email } = cliente;
 
         //Verifica se os três campos foram preenchidos
@@ -49,7 +48,6 @@ class Clientes {
         const getClient = await this.getById(id)
 
         if (getClient) {
-
             //Cria a string
             let changes = '';
             for (let prop in values) {
@@ -79,8 +77,23 @@ class Clientes {
             const resposta = await sqlHandle(sql)
             return resposta
         } else {
-            return { status: 400 };
+            return { status: 400, error: "Cliente não encontrado" };
         }
+
+    }
+
+    async delete(id) {
+
+        const cliente = await this.getById(id)
+
+        if (cliente) {
+            const sql = `DELETE FROM clientes WHERE id = ${id};`
+            const resposta = await sqlHandle(sql)
+            return resposta
+        } else {
+            return { status: 400, error: "Cliente não encontrado" }
+        }
+
 
     }
 }

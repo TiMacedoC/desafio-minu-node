@@ -12,7 +12,7 @@ module.exports = (cpf) => {
         },
         isValid: {
             valid: false,
-            message: "CPF Incorreto"
+            message: "CPF Incorreto/Invalido"
         },
     }
 

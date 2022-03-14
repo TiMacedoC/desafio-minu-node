@@ -14,7 +14,14 @@ module.exports = (app) => {
     app.get('/clientes/:id', async (req, res) => {
         const { id } = req.params;
         const resposta = await Clientes.getById(id);
-        resposta ? res.json(resposta) : res.json({ cliente: "Id não encontrado" })
+        resposta ? res.json(resposta) : res.json({ client: false, error: "Id não encontrado" })
+    })
+
+    app.delete('/clientes/:id', async (req, res) => {
+        const { id } = req.params;
+        const resposta = await Clientes.delete(id);
+
+        res.status(resposta.status).json(resposta)
     })
 
     app.patch('/clientes/:id', async (req, res) => {
