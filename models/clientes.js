@@ -3,6 +3,7 @@ const cpfHandle = require('./cpfHandle')
 
 class Clientes {
 
+    // Geralmente, o ideal é retornar o status 201 (created) para rotas de POST nas APIs REST
     async post(cliente) {
         const { cpf, nome, email } = cliente;
 
