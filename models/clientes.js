@@ -18,6 +18,8 @@ class Clientes {
 
                 const resposta = await sqlHandle(sql);
 
+                resposta.status = 201;
+
                 return resposta;
 
 
