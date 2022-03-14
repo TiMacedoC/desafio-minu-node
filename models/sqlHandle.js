@@ -4,7 +4,7 @@ module.exports = async (sql) => {
     try {
         const success = await dbConnection.query(sql)
         return {
-            status: 200,
+            status: 201,
             res: { ...success }
         }
     } catch (erro) {
