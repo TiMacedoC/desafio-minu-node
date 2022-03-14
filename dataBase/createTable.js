@@ -5,7 +5,7 @@ module.exports = () => {
     const sql = `
     CREATE TABLE IF NOT EXISTS clientes (
         id serial NOT NULL,
-        cpf bigint NOT NULL,
+        cpf varchar(11) NOT NULL,
         nome varchar(50) NOT NULL,
         email varchar(50) NOT NULL
     );`
